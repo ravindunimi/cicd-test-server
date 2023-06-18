@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-       Hello CI-CD
+       Hello CI-CD Project!
       </header>
     </div>
   );

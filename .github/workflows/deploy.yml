@@ -2,7 +2,7 @@ name: ci-cd pipeline deploy to test
 
 on:
   push:
-    branches: [ main ]
+    branches: [ feature/github-action ]
 jobs:
   deploy:
     runs-on: ubuntu-latest

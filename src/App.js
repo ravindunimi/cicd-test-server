@@ -14,6 +14,8 @@ function AppTest() {
 
   const [backendData, setBackendData] = useState([{}])
 
+  const [backendMemberData, setBackendMemberData] = useState([{}])
+
   useEffect(() => {
     fetch("/api").then(
       response => response.json()
@@ -23,17 +25,43 @@ function AppTest() {
     )
   }, [])
 
+  useEffect(() => {
+    fetch("/members").then(
+      response => response.json()
+    ).then(
+      data => 
+      setBackendMemberData(data)
+    )
+  }, [])
+
   return (
     <div>
-      <h1>New Release...!</h1>
+
+      <header style = {{backgroundColor:"yellow",height:"70px"}}>
+      <h1>App Release...!</h1>
+      </header>
+      
+      <body>
+      <h4>Users</h4>
       {(typeof backendData.users === 'undefined') ? (
-        <p>Loading...</p>
+        <p> Loading...</p>
       ) : (
           backendData.users.map((user, i) => (
             <p key={i}>{user}</p>
          )) 
       )}
 
+      <h4>Members</h4>
+      {(typeof backendMemberData.users === 'undefined') ? (
+        <p> Loading...</p>
+      ) : (
+          backendMemberData.users.map((user, i) => (
+            <p key={i}>{user}</p>
+         )) 
+        )} 
+      </body>
+
+      <h6>Version QA-1.0.0</h6>
     </div>
   );
 }

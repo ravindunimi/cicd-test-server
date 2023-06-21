@@ -25,7 +25,7 @@ function AppTest() {
 
   return (
     <div>
-      <h1>New App</h1>
+      <h1>New App...!</h1>
       {(typeof backendData.users === 'undefined') ? (
         <p>Loading...</p>
       ) : (

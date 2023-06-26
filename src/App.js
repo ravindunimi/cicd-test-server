@@ -1,5 +1,5 @@
 import logo from "./logo.svg";
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState } from "react";
 import "./App.css";
 
 // function App() {
@@ -11,57 +11,45 @@ import "./App.css";
 // }
 
 function AppTest() {
+  const [backendData, setBackendData] = useState([{}]);
 
-  const [backendData, setBackendData] = useState([{}])
-
-  const [backendMemberData, setBackendMemberData] = useState([{}])
-
-  useEffect(() => {
-    fetch("/api").then(
-      response => response.json()
-    ).then(
-      data => 
-        setBackendData(data)
-    )
-  }, [])
+  const [backendMemberData, setBackendMemberData] = useState([{}]);
 
   useEffect(() => {
-    fetch("/members").then(
-      response => response.json()
-    ).then(
-      data => 
-      setBackendMemberData(data)
-    )
-  }, [])
+    fetch("/api")
+      .then((response) => response.json())
+      .then((data) => setBackendData(data));
+  }, []);
+
+  useEffect(() => {
+    fetch("/members")
+      .then((response) => response.json())
+      .then((data) => setBackendMemberData(data));
+  }, []);
 
   return (
     <div>
-
-      <header style = {{backgroundColor:"yellow",height:"70px"}}>
-      <h1>App Release...!</h1>
+      <header style={{ backgroundColor: "red", height: "70px" }}>
+        <h1>App Release...!</h1>
       </header>
-      
-      <body>
-      <h4>Users</h4>
-      {(typeof backendData.users === 'undefined') ? (
-        <p> Loading...</p>
-      ) : (
-          backendData.users.map((user, i) => (
-            <p key={i}>{user}</p>
-         )) 
-      )}
 
-      <h4>Members</h4>
-      {(typeof backendMemberData.users === 'undefined') ? (
-        <p> Loading...</p>
-      ) : (
-          backendMemberData.users.map((user, i) => (
-            <p key={i}>{user}</p>
-         )) 
-        )} 
+      <body>
+        <h4>Users</h4>
+        {typeof backendData.users === "undefined" ? (
+          <p> Loading...</p>
+        ) : (
+          backendData.users.map((user, i) => <p key={i}>{user}</p>)
+        )}
+
+        <h4>Members</h4>
+        {typeof backendMemberData.users === "undefined" ? (
+          <p> Loading...</p>
+        ) : (
+          backendMemberData.users.map((user, i) => <p key={i}>{user}</p>)
+        )}
       </body>
 
-      <h6>Version QA-1.0.0</h6>
+      <h6>Version QA-1.1.1</h6>
     </div>
   );
 }

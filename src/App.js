@@ -29,8 +29,8 @@ function AppTest() {
 
   return (
     <div>
-      <header style={{ backgroundColor: "purple", height: "70px" }}>
-        <h1>New App Release...!</h1>
+      <header style={{ backgroundColor: "yellow", height: "70px" }}>
+        <h1>New Test App....!!</h1>
       </header>
 
       <body>
@@ -49,7 +49,7 @@ function AppTest() {
         )}
       </body>
 
-      <h6>Version QA-1.1.2</h6>
+      <h6>Version QA-1.1.3</h6>
     </div>
   );
 }

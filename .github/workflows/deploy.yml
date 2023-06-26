@@ -1,4 +1,4 @@
-name: ci-cd pipeline deploy to test
+name: ci-cd pipeline deploy to test FE
 
 on:
   push:

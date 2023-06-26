@@ -29,7 +29,7 @@ function AppTest() {
 
   return (
     <div>
-      <header style={{ backgroundColor: "aqua", height: "70px" }}>
+      <header style={{ backgroundColor: "purple", height: "70px" }}>
         <h1>New App Release...!</h1>
       </header>
 

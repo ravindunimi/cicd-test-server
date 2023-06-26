@@ -28,11 +28,13 @@ jobs:
           script: |
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
+            screen
             cd /home/ubuntu/cicd-test-server
             git stash
             git pull origin feature/github-action
             npm install
-            pm2 restart cicd-test-server
+            # pm2 restart cicd-test-server
+            npm start
 
       - name: Remove Github Actions IP from security group
         run: |
